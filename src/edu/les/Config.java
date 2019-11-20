@@ -60,11 +60,12 @@ public class Config implements WebMvcConfigurer {
 	public DataSource dataSource() {
 		try {
 			DriverManagerDataSource dataSource = new DriverManagerDataSource();
-			dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+			dataSource.setDriverClassName("org.hsqldb.jdbc.JDBCDriver");
 			dataSource.setUsername("hotel");
 			dataSource.setPassword("mysqldb8");
-			dataSource.setUrl(
-					"jdbc:mysql://localhost:3306/hoteldb?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC");
+			// /home/site/wwwroot/webapps/hoteldb
+			// /Users/escvd/Documents/LAB_ENG_SW/SpringHotel/SpringHotel/hoteldb
+			dataSource.setUrl("jdbc:hsqldb:file:/home/site/wwwroot/webapps/hoteldb");
 			return dataSource;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,7 +81,7 @@ public class Config implements WebMvcConfigurer {
 	@Bean
 	public Properties hibernateProperties() {
 		Properties hibernateProp = new Properties();
-		hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
 		hibernateProp.put("hibernate.hbm2ddl.auto", "update");
 		hibernateProp.put("hibernate.format_sql", false);
 		hibernateProp.put("hibernate.use_sql_comments", true);
