@@ -1,5 +1,7 @@
 package edu.les.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +13,12 @@ import javax.persistence.Table;
 
 @Entity(name = "room")
 @Table(name = "room")
-public class RoomEntity {
+public class RoomEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int roomId;
 	private int roomNumber;
 	private RoomCategoryEntity roomCategory;

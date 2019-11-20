@@ -1,5 +1,6 @@
 package edu.les.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,7 +21,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Embeddable
 @Entity(name = "hotel_user")
 @Table(name = "hotel_user")
-public class UserEntity {
+public class UserEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String userCpf;
 	private String username;
 	private String userRole;

@@ -1,5 +1,7 @@
 package edu.les.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
@@ -9,7 +11,12 @@ import javax.persistence.Table;
 @Embeddable
 @Entity(name = "address")
 @Table(name = "address")
-public class AddressEntity {
+public class AddressEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String zipCode;
 	private String street;
 	private String district;
