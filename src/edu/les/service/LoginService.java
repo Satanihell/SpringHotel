@@ -17,7 +17,7 @@ public class LoginService {
 
 	public UserEntity login(UserEntity userEntity) throws ExceptionHandler {
 		if (this.isAdmin(userEntity.getEmail(), userEntity.getPassword())) {
-			return defaultAdminUser();
+			return this.defaultAdminUser();
 		}
 		Optional<UserEntity> user = this.userService.fetchLogin(userEntity.getEmail(), userEntity.getPassword());
 		if (!user.isPresent()) {
@@ -55,5 +55,4 @@ public class LoginService {
 
 		return admin;
 	}
-
 }
