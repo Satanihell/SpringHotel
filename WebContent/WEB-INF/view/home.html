@@ -1,11 +1,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="ISO-8859-1">
-<title>Home</title>
-<link rel="stylesheet" href="resources/css/table.css" />
+	<meta charset="ISO-8859-1">
+	<title>Home</title>
+	<link rel="stylesheet" href="resources/css/table.css" />
 </head>
-
 <body>
 	<nav>
 		<a th:href="@{/home}">Spring Hotel</a>
@@ -24,6 +23,9 @@
 			</ul>
 		</div>
 	</nav>
+	<div th:if="${STATUS_MESSAGE}">
+		<strong th:text="${STATUS_MESSAGE}"></strong>
+	</div>
 	<div th:if="${!IS_ADMIN}">
 		<nav th:object="${user}">
 			<label>Name</label> <label th:text="*{username}"></label> <label>CPF:</label><label
